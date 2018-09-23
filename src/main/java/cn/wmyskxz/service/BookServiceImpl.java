@@ -23,4 +23,10 @@ public class BookServiceImpl implements BookService {
 
         return mapper.findBookInfo();
     }
+
+    public void addBookInfo(Book book) throws Exception {
+
+        mapper.addBookInfo(book);
+    }
+
 }

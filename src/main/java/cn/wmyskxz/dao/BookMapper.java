@@ -6,4 +6,6 @@ import java.util.Collection;
 
 public interface BookMapper {
     public Collection<Book> findBookInfo();
+
+    public void addBookInfo(Book book);
 }

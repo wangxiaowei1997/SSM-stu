@@ -3,10 +3,7 @@ package cn.wmyskxz.controller;
 import cn.wmyskxz.entity.Book;
 import cn.wmyskxz.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -17,17 +14,21 @@ import java.util.Collection;
  */
 @CrossOrigin
 @RestController
-@RequestMapping(value="/listBook")
+@RequestMapping(value="/book")
 public class BookController {
 
     private static final String APPLICATION_JSON = "application/json";
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "",method = RequestMethod.GET,produces = APPLICATION_JSON)
+    @RequestMapping(value = "/list",method = RequestMethod.GET,produces = APPLICATION_JSON)
     public Collection<Book> listBook() throws  Exception{
 
-
         return bookService.findBookInfo();
+    }
+
+    @RequestMapping(value = "/add",method = RequestMethod.POST,produces = APPLICATION_JSON)
+    public void addBook(@RequestBody Book input) throws Exception{
+        bookService.addBookInfo(input);
     }
 }

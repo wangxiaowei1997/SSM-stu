@@ -16,4 +16,10 @@ public interface BookService {
      * @throws Exception
      */
     public Collection<Book> findBookInfo() throws Exception;
+
+    /**
+     * 添加图书
+     * @throws Exception
+     */
+    public void addBookInfo(Book book) throws Exception;
 }

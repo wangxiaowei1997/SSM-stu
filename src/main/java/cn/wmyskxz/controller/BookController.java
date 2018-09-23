@@ -1,19 +1,31 @@
 package cn.wmyskxz.controller;
 
+import cn.wmyskxz.entity.Book;
+import cn.wmyskxz.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Collection;
+
 
 /**
  * @author wangwei
  * @create 2018/9/18
  */
-@RequestMapping("")
+@RestController
+@RequestMapping(value="/listBook")
 public class BookController {
 
-    @RequestMapping("/listBook")
-    public String listBook(HttpServletRequest request, HttpServletResponse response){
-        return "redirect:listBook";
+    private static final String APPLICATION_JSON = "application/json";
+    @Autowired
+    private BookService bookService;
+
+    @RequestMapping(value = "",method = RequestMethod.GET,produces = APPLICATION_JSON)
+    public Collection<Book> listBook() throws  Exception{
+
+
+        return bookService.findBookInfo();
     }
 }

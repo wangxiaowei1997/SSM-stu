@@ -2,7 +2,7 @@
 target/
 catalina.base_IS_UNDEFINED/
 catalina.home_IS_UNDEFINED/
-SSM-student.iml
+*.iml
 *.zip
 *.log
 results.txt

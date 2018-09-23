@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wmyskxz.dao.BookMapper">
+    <!-- 读取图书列表 -->
+    <select id="findBookInfo" resultMap="BookMap">
+        SELECT id,book_id,book_name,book_price,date
+        From  book
+    </select>
+    <resultMap id="BookMap" type="Book">
+        <result property="id" column="id"/>
+        <result property="bookId" column="book_id"/>
+        <result property="bookName" column="book_name"/>
+        <result property="bookPrice" column="book_price"/>
+        <result property="date" column="date"/>
+    </resultMap>
+</mapper>

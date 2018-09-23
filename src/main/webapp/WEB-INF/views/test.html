@@ -1,90 +1,75 @@
-<!doctype html><html lang="en"><head><title>HTTP Status 500 – Internal Server Error</title><style type="text/css">h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 500 – Internal Server Error</h1><hr class="line" /><p><b>Type</b> Exception Report</p><p><b>Message</b> Could not write content: Invalid Object Id definition for cn.wmyskxz.entity.Book: can not find property with name &#39;@id&#39; (through reference chain: java.util.ArrayList[0]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Invalid Object Id definition for cn.wmyskxz.entity.Book: can not find property with name &#39;@id&#39; (through reference chain: java.util.ArrayList[0])</p><p><b>Description</b> The server encountered an unexpected condition that prevented it from fulfilling the request.</p><p><b>Exception</b></p><pre>org.springframework.http.converter.HttpMessageNotWritableException: Could not write content: Invalid Object Id definition for cn.wmyskxz.entity.Book: can not find property with name &#39;@id&#39; (through reference chain: java.util.ArrayList[0]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Invalid Object Id definition for cn.wmyskxz.entity.Book: can not find property with name &#39;@id&#39; (through reference chain: java.util.ArrayList[0])
-	org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:292)
-	org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:100)
-	org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:231)
-	org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:174)
-	org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
-	org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
-	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-</pre><p><b>Root Cause</b></p><pre>com.fasterxml.jackson.databind.JsonMappingException: Invalid Object Id definition for cn.wmyskxz.entity.Book: can not find property with name &#39;@id&#39; (through reference chain: java.util.ArrayList[0])
-	com.fasterxml.jackson.databind.JsonMappingException.from(JsonMappingException.java:291)
-	com.fasterxml.jackson.databind.SerializerProvider.mappingException(SerializerProvider.java:1124)
-	com.fasterxml.jackson.databind.SerializerProvider.reportMappingProblem(SerializerProvider.java:1146)
-	com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1263)
-	com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:500)
-	com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap.findAndAddSecondarySerializer(PropertySerializerMap.java:90)
-	com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase._findAndAddDynamic(AsArraySerializerBase.java:308)
-	com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serializeContents(CollectionSerializer.java:144)
-	com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serialize(CollectionSerializer.java:112)
-	com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serialize(CollectionSerializer.java:25)
-	com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:416)
-	com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1425)
-	com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:951)
-	org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:285)
-	org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:100)
-	org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:231)
-	org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:174)
-	org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
-	org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
-	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-</pre><p><b>Root Cause</b></p><pre>java.lang.IllegalArgumentException: Invalid Object Id definition for cn.wmyskxz.entity.Book: can not find property with name &#39;@id&#39;
-	com.fasterxml.jackson.databind.ser.BeanSerializerFactory.constructObjectIdHandler(BeanSerializerFactory.java:496)
-	com.fasterxml.jackson.databind.ser.BeanSerializerFactory.constructBeanSerializer(BeanSerializerFactory.java:430)
-	com.fasterxml.jackson.databind.ser.BeanSerializerFactory.findBeanSerializer(BeanSerializerFactory.java:282)
-	com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:234)
-	com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:168)
-	com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1308)
-	com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1258)
-	com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:500)
-	com.fasterxml.jackson.databind.ser.impl.PropertySerializerMap.findAndAddSecondarySerializer(PropertySerializerMap.java:90)
-	com.fasterxml.jackson.databind.ser.std.AsArraySerializerBase._findAndAddDynamic(AsArraySerializerBase.java:308)
-	com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serializeContents(CollectionSerializer.java:144)
-	com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serialize(CollectionSerializer.java:112)
-	com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serialize(CollectionSerializer.java:25)
-	com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:416)
-	com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1425)
-	com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:951)
-	org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:285)
-	org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:100)
-	org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:231)
-	org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:174)
-	org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
-	org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
-	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
-	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
-	org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
-	org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
-	org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
-	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
-	org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
-	javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
-	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
-	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-</pre><p><b>Note</b> The full stack trace of the root cause is available in the server logs.</p><hr class="line" /><h3>Apache Tomcat/9.0.11</h3></body></html>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="http://www.softwhy.com/" />
+	<title>蚂蚁部落</title>
+	<script>
+        window.onload = function () {
+            var oTab = document.getElementById('antzone');
+            var data = [
+                { id: 1, username: '小王', sex: '男' },
+                { id: 2, username: '小李', sex: '女' },
+                { id: 3, username: '小红', sex: '男' },
+                { id: 4, username: '小强', sex: '男' },
+            ];
+
+            var oTbody = oTab.tBodies[0];
+            for (var index = 0; index < data.length; index++) {
+                var oTr = document.createElement('tr');
+                oTbody.appendChild(oTr);
+
+                var oTd = document.createElement('td');
+                oTd.innerHTML = data[index].id;
+                oTr.appendChild(oTd);
+
+                oTd = document.createElement('td');
+                oTd.innerHTML = data[index].username;
+                oTr.appendChild(oTd);
+
+                oTd = document.createElement('td');
+                oTd.innerHTML = data[index].sex;
+                oTr.appendChild(oTd);
+
+                oTd = document.createElement('td');
+                oTr.appendChild(oTd);
+
+                var oA = document.createElement('a');
+                oA.innerHTML = "删除";
+                oA.href = "javascript:;";
+                oTd.appendChild(oA);
+                oA.onclick = function () {
+                    oTbody.removeChild(this.parentNode.parentNode);
+                }
+            }
+        }
+        $.ajax( {
+            type : "POST",
+            url : "testjson!getJson.do",
+            dataType:"json",
+            cache:false,
+            async:false,
+            data : "",
+            success : function(data) {
+                //var object = eval("("+data+")");
+                $.each(data.list,function(index,item){
+                    alert(item.trueName);
+                })
+            }
+        });
+	</script>
+</head>
+<body>
+<table id="antzone" border="1" width="100%">
+	<thead>
+	<tr>
+		<td>编号</td>
+		<td>姓名</td>
+		<td>性别</td>
+		<td>操作</td>
+	</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+</body>
+</html>

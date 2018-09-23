@@ -6,30 +6,80 @@
     <style>
 
     </style>
+    <script src="../../js/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../../js/Ajax/Ajax.js"></script>
     <script>
+        var myList = [
+            {
+                "book_id": 1001,
+                "book_name": "银河帝国",
+                "book_price": 58.5,
+                "date": "9/23",
+                "id": 1
+            },
+            {
+                "book_id": 1002,
+                "book_name": "三体",
+                "book_price": 28,
+                "date": "9/23",
+                "id": 2
+            }
+        ];
+        var url3 ='http://127.0.0.1:8080/listBook';
+        var ajax = new Ajax;
+        ajax.ajax({
+            url: url3,
+            contentType:'application/json',
+            type:'get',
+            success: function(data){
+                var arr=eval(data);
+                myList = arr;
+                console.log(myList);
+
+            }
+        });
+        window.onload = function () {
+        var oTab = document.getElementById('book-table');
+        var oTbody = oTab.tBodies[0];
+        for(var index=0;index<myList.length;index++){
+            var oTr = document.createElement('tr');
+            oTbody.appendChild(oTr);
+
+            var oTd1 = document.createElement('td');
+            var oTd2 = document.createElement('td');
+            var oTd3 = document.createElement('td');
+            var oTd4 = document.createElement('td');
+            var oTd5 = document.createElement('td');
+            oTd1.innerHTML = myList[index].id;
+            oTd2.innerHTML = myList[index].book_id;
+            oTd3.innerHTML = myList[index].book_name;
+            oTd4.innerHTML = myList[index].book_price;
+            oTd5.innerHTML = myList[index].date;
+            oTr.appendChild(oTd1);
+            oTr.appendChild(oTd2);
+            oTr.appendChild(oTd3);
+            oTr.appendChild(oTd4);
+            oTr.appendChild(oTd5);
+        }
+        }
+
 
     </script>
 </head>
 <body>
 <div class="listDIV">
-    <table class="book-table" border="2">
+    <table id="book-table" border="2">
         <caption >图书列表</caption>
         <thead>
             <tr class="table-head">
+                <th>id</th>
                 <th>书号</th>
                 <th>书名</th>
                 <th>价格</th>
                 <th>入库日期</th>
             </tr>
         </thead>
-        <tobody>
-            <tr>
-                <th>001</th>
-                <th>银河帝国</th>
-                <th>58.5</th>
-                <th>2018/9/18</th>
-            </tr>
-        </tobody>
+        <tbody></tbody>
 
     </table>
 

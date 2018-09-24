@@ -3,8 +3,10 @@ package cn.wmyskxz.controller;
 import cn.wmyskxz.entity.Book;
 import cn.wmyskxz.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.json.JsonObject;
 import java.util.Collection;
 
 
@@ -23,7 +25,6 @@ public class BookController {
 
     @RequestMapping(value = "/list",method = RequestMethod.GET,produces = APPLICATION_JSON)
     public Collection<Book> listBook() throws  Exception{
-
         return bookService.findBookInfo();
     }
 
@@ -31,8 +32,14 @@ public class BookController {
     public void addBook(@RequestBody Book input) throws Exception{
         bookService.addBookInfo(input);
     }
-    @RequestMapping(value = "delete",method =RequestMethod.POST,produces = APPLICATION_JSON )
-    public String deleteBook() throws Exception{
-        return "success";
+
+    @RequestMapping(value = "/delete",method =RequestMethod.POST,produces = APPLICATION_JSON )
+    public void deleteBook(@RequestBody Book book ) throws Exception{
+        bookService.deleteBookInfo(book);
+    }
+
+    @RequestMapping(value = "/update",method = RequestMethod.POST,produces = APPLICATION_JSON)
+    public void updateBook(@RequestBody Book book) throws Exception{
+        bookService.updateBookInfo(book);
     }
 }

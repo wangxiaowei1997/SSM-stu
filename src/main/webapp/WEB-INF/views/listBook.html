@@ -98,6 +98,22 @@
 
         function deleteBook(bookid) {
             console.log(bookid);
+            var book_json = {};
+            book_json["book_id"] = bookid;
+            var book_jsonString = JSON.stringify(book_json);
+            var ajax = new Ajax();
+            url4 = 'http://127.0.0.1:8080/book/delete';
+            ajax.ajax({
+                url: url4,
+                contentType:'application/json',
+                type:'post',
+                data:book_jsonString,
+                success: function(data){
+                    var arr=eval(data);
+                    console.log(arr);
+                    location.reload();
+                }
+            });
 
         }
 

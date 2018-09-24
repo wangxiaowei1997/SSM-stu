@@ -29,4 +29,13 @@ public class BookServiceImpl implements BookService {
         mapper.addBookInfo(book);
     }
 
+    public void deleteBookInfo(Book book) throws Exception {
+        mapper.deleteBookInfo(book);
+    }
+
+    public void updateBookInfo(Book book) throws  Exception{
+
+        mapper.updateBookInfo(book);
+
+    }
 }

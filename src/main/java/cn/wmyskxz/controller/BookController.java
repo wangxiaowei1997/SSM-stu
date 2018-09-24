@@ -31,4 +31,8 @@ public class BookController {
     public void addBook(@RequestBody Book input) throws Exception{
         bookService.addBookInfo(input);
     }
+    @RequestMapping(value = "delete",method =RequestMethod.POST,produces = APPLICATION_JSON )
+    public String deleteBook() throws Exception{
+        return "success";
+    }
 }

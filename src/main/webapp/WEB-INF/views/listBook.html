@@ -40,6 +40,7 @@
         window.onload = function () {
         var oTab = document.getElementById('book-table');
         var oTbody = oTab.tBodies[0];
+        var book_s;
         for(var index=0;index<myList.length;index++){
             var oTr = document.createElement('tr');
             oTbody.appendChild(oTr);
@@ -49,16 +50,20 @@
             var oTd3 = document.createElement('td');
             var oTd4 = document.createElement('td');
             var oTd5 = document.createElement('td');
+            var oTd6 = document.createElement('td');
             oTd1.innerHTML = myList[index].id;
             oTd2.innerHTML = myList[index].book_id;
+            book_s = myList[index].book_id;
             oTd3.innerHTML = myList[index].book_name;
             oTd4.innerHTML = myList[index].book_price;
             oTd5.innerHTML = myList[index].date;
+            oTd6.innerHTML = '<a onclick="deleteBook('+book_s+')" ><span class="glyphicon glyphicon-trash"></span></a>';
             oTr.appendChild(oTd1);
             oTr.appendChild(oTd2);
             oTr.appendChild(oTd3);
             oTr.appendChild(oTd4);
             oTr.appendChild(oTd5);
+            oTr.appendChild(oTd6);
         }
         };
         function addBook() {
@@ -91,6 +96,11 @@
 
         }
 
+        function deleteBook(bookid) {
+            console.log(bookid);
+
+        }
+
     </script>
 </head>
 <body>
@@ -105,34 +115,51 @@
                 <th>书名</th>
                 <th>价格</th>
                 <th>入库日期</th>
+                <th>删除</th>
             </tr>
         </thead>
         <tbody></tbody>
 
     </table>
-    <form method="post" id="add-book" >
-        <table id="add-table" class="table">
-            <tr>
-                <td>书号</td>
-                <td><input type="text"  id="book_id"></td>
-            </tr>
-            <tr>
-                <td>书名</td>
-                <td><input type="text" id="book_name"></td>
-            </tr>
-            <tr>
-                <td>价格</td>
-                <td><input type="text" id="book_price"></td>
-            </tr>
-            <tr>
-                <td>入库日期</td>
-                <td><input type="text" id="date"></td>
-            </tr>
-            <tr>
-                <td><input type="button" value="提交" onclick="addBook()"></td>
-            </tr>
-        </table>
-    </form>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">增加图书</h3>
+        </div>
+        <div class="panel-body">
+            <form method="post" id="add-book" class="form-horizontal">
+                <div class="form-group">
+                    <label for="book_id" class="col-md-3 control-label">书号</label>
+                    <div class="col-md-4">
+                        <input type="text"  id="book_id" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="book_name" class="col-md-3 control-label">书名</label>
+                    <div class="col-md-4">
+                        <input type="text" id="book_name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="book_price" class="col-md-3 control-label">价格</label>
+                    <div class="col-md-4">
+                        <input type="text" id="book_price" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="col-md-3 control-label">入库日期</label>
+                    <div class="col-md-4">
+                        <input type="text" id="date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-sm-offset-3 col-md-3">
+                        <input type="button" value="提交" onclick="addBook()" class="btn btn-default">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

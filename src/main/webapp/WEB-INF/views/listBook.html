@@ -60,8 +60,36 @@
             oTr.appendChild(oTd4);
             oTr.appendChild(oTd5);
         }
-        }
+        };
+        function addBook() {
+            var book_id = document.getElementById("book_id").value;
+            var book_name = document.getElementById("book_name").value;
+            var book_price = document.getElementById("book_price").value;
+            var date = document.getElementById("date").value;
 
+            var book_json = {};
+            book_json["book_id"] = book_id;
+            book_json["book_name"] = book_name;
+            book_json["book_price"] = book_price;
+            book_json["date"] = date;
+            var book_jsonString = JSON.stringify(book_json);
+            console.log(book_jsonString);
+            var ajax = new Ajax();
+            url4 = 'http://127.0.0.1:8080/book/add';
+            ajax.ajax({
+                url: url4,
+                contentType:'application/json',
+                type:'post',
+                data:book_jsonString,
+                success: function(data){
+                    var arr=eval(data);
+                    console.log(arr);
+                    location.reload();
+                }
+            });
+
+
+        }
 
     </script>
 </head>
@@ -82,7 +110,29 @@
         <tbody></tbody>
 
     </table>
-
+    <form method="post" id="add-book" >
+        <table id="add-table" class="table">
+            <tr>
+                <td>书号</td>
+                <td><input type="text"  id="book_id"></td>
+            </tr>
+            <tr>
+                <td>书名</td>
+                <td><input type="text" id="book_name"></td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td><input type="text" id="book_price"></td>
+            </tr>
+            <tr>
+                <td>入库日期</td>
+                <td><input type="text" id="date"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="提交" onclick="addBook()"></td>
+            </tr>
+        </table>
+    </form>
 </div>
 </body>
 </html>
